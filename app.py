@@ -12,7 +12,7 @@ tmdb_endpoint = "https://api.themoviedb.org/3/search/movie"
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://mxjindipahrokw:d8a1a34d0f8b7bb4a193c982485c4f45a8e357828c6be2a67385079c6646c425@ec2-44-205-177-160.compute-1.amazonaws.com:5432/d90b2tj4fgpjfd'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL').replace('postgres:','postgresql:')
 app.config['SECRET_KEY'] = 'thisismysecretkey'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
